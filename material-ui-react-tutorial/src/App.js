@@ -1,12 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 
 import { Favorite } from "@material-ui/icons";
-import { ButtonGroup } from "@material-ui/core";
-import { Checkbox } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
+import {
+  Container,
+  ButtonGroup,
+  Button,
+  Paper,
+  Grid,
+  Checkbox,
+  TextField,
+} from "@material-ui/core";
 
 const CheckBoxExample = () => {
   const [checked, setChecked] = useState(true);
@@ -25,25 +30,39 @@ const CheckBoxExample = () => {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <TextField
-          variant="filled"
-          color="secondary"
-          type="date"
-          label="the time"></TextField>
-        <CheckBoxExample />
-        <ButtonGroup>
-          <Button
-            startIcon={<Favorite />}
-            variant="contained"
-            size="large"
-            color="secondary">
-            Hello World
-          </Button>
-        </ButtonGroup>
+      <Container maxWidth="md">
+        <header className="App-header">
+          <TextField
+            variant="filled"
+            color="secondary"
+            type="date"
+            label="the time"></TextField>
+          <CheckBoxExample />
+          <ButtonGroup>
+            <Button
+              startIcon={<Favorite />}
+              variant="contained"
+              size="large"
+              color="secondary">
+              Hello World
+            </Button>
+          </ButtonGroup>
 
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+          <Grid container spacing={2} justify="center">
+            <Grid item xs={12} sm={6}>
+              <Paper style={{ height: 75, width: "100%" }}></Paper>
+            </Grid>
+            <Grid item xs={3} sm={6}>
+              <Paper style={{ height: 75, width: 50 }}></Paper>
+            </Grid>
+            <Grid item xs>
+              <Paper style={{ height: 75, width: 50 }}></Paper>
+            </Grid>
+          </Grid>
+
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </Container>
     </div>
   );
 }
